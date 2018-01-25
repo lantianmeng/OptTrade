@@ -6,3 +6,4 @@
 4、单利模式（线程安全，无内存泄漏）
 5、关于“friend”的使用
 lpReqMode->m_pSink->XXXX    "m_pSink是private，TradeInterface对象lpReqMode在类的外部直接使用"
+6、threadsafe_queue.h 中 shared_mutex的使用存在问题，另外要搞清楚 lock_guard 与unique_lock的区别
