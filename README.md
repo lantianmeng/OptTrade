@@ -7,3 +7,5 @@
 5、关于“friend”的使用
 lpReqMode->m_pSink->XXXX    "m_pSink是private，TradeInterface对象lpReqMode在类的外部直接使用"
 6、搞清楚 lock_guard 与unique_lock的区别
+
+7、MemoryPool （在github上搜索，star最多的那个，写demo弄明白  （百度搜索 c++内存池） http://blog.csdn.net/xjtuse2014/article/details/52302083）
