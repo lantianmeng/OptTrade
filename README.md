@@ -16,3 +16,4 @@ lpReqMode->m_pSink->XXXX    "m_pSink是private，TradeInterface对象lpReqMode�
 7、MemoryPool （在github上搜索，star最多的那个，写demo弄明白  （百度搜索 c++内存池） http://blog.csdn.net/xjtuse2014/article/details/52302083）
 
 8、无锁队列   （对比 threadsafe_queue种的队列）  的应用场景，实现
+http://blog.csdn.net/cws1214/article/details/47680773
