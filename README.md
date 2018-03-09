@@ -17,3 +17,5 @@ lpReqMode->m_pSink->XXXX    "m_pSink是private，TradeInterface对象lpReqMode�
 
 8、无锁队列   （对比 threadsafe_queue种的队列）  的应用场景，实现
 http://blog.csdn.net/cws1214/article/details/47680773
+
+9、learn c++11   tips.h/tips.cpp  ConsoleApplication.cpp
