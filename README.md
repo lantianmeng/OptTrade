@@ -19,3 +19,6 @@ lpReqMode->m_pSink->XXXX    "m_pSink是private，TradeInterface对象lpReqMode�
 http://blog.csdn.net/cws1214/article/details/47680773
 
 9、learn c++11   tips.h/tips.cpp  ConsoleApplication.cpp
+
+
+10、learn c++ network programming  （目前文件中主要是熟悉api， 迭代并发服务器的逻辑都没有，需进一步学习）
