@@ -22,3 +22,17 @@ http://blog.csdn.net/cws1214/article/details/47680773
 
 
 10、learn c++ network programming  （目前文件中主要是熟悉api， 迭代并发服务器的逻辑都没有，需进一步学习）
+
+
+11、unsigned char * 十六进制 转换为string字符串    【openssl rc4加密算法中会用到】
+    如 “0x510x090x500xbd0x7d0xc8”  ->  "510950bd7dc8"
+	//unsigned char * 十六进制 转换为string字符串
+	stringstream ss;
+	for (int i = 0; i != nMsgBodyLen; ++i)
+	{
+		//ss << "0x" << setw(2) << setfill('0') << hex << (int)szCryptData[i] << ", ";
+		ss << setw(2) << setfill('0') << hex << (int)szCryptData[i];
+	}
+
+	strCrypt = ss.str();
+
