@@ -56,7 +56,7 @@ class threadsafe_queue
          data_queue.pop();  
          return res;  
      }  
-     bool empty() const  
+     bool empty()  
      {  
          std::lock_guard<std::mutex> lk(mut);
          return data_queue.empty();  
