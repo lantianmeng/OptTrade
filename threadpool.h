@@ -2,6 +2,8 @@
 #ifndef THREADPOOL_H
 #define THREADPOOL_H
 
+#include <future>
+#include <functional>
 #include <thread>
 #include <atomic>
 #include <vector>
@@ -20,18 +22,18 @@ public:
 		stop();
 	}
 
-	// Ìá½»Ò»¸öÈÎÎñ
-	// µ÷ÓÃ.get()»ñÈ¡·µ»ØÖµ»áµÈ´ıÈÎÎñÖ´ĞĞÍê,»ñÈ¡·µ»ØÖµ
-	// ÓĞÁ½ÖÖ·½·¨¿ÉÒÔÊµÏÖµ÷ÓÃÀà³ÉÔ±£¬
-	// Ò»ÖÖÊÇÊ¹ÓÃ   bind£º .commit(std::bind(&Dog::sayHello, &dog));
-	// Ò»ÖÖÊÇÓÃ mem_fn£º .commit(std::mem_fn(&Dog::sayHello), &dog)
+	// æäº¤ä¸€ä¸ªä»»åŠ¡
+	// è°ƒç”¨.get()è·å–è¿”å›å€¼ä¼šç­‰å¾…ä»»åŠ¡æ‰§è¡Œå®Œ,è·å–è¿”å›å€¼
+	// æœ‰ä¸¤ç§æ–¹æ³•å¯ä»¥å®ç°è°ƒç”¨ç±»æˆå‘˜ï¼Œ
+	// ä¸€ç§æ˜¯ä½¿ç”¨   bindï¼š .commit(std::bind(&Dog::sayHello, &dog));
+	// ä¸€ç§æ˜¯ç”¨ mem_fnï¼š .commit(std::mem_fn(&Dog::sayHello), &dog)
 	template<class F, class... Args>
 	auto commit(F&& f, Args&&... args) ->std::future<decltype(f(args...))>
 	{
 		if (stoped.load())    // stop == true ??
 			throw std::runtime_error("commit on ThreadPool is stopped.");
 
-		using RetType = decltype(f(args...)); // typename std::result_of<F(Args...)>::type, º¯Êı f µÄ·µ»ØÖµÀàĞÍ
+		using RetType = decltype(f(args...)); // typename std::result_of<F(Args...)>::type, å‡½æ•° f çš„è¿”å›å€¼ç±»å‹
 		auto task = std::make_shared<std::packaged_task<RetType()> >(
 			std::bind(std::forward<F>(f), std::forward<Args>(args)...)
 			);    // wtf !
