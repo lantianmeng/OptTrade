@@ -36,3 +36,9 @@ http://blog.csdn.net/cws1214/article/details/47680773
 
 	strCrypt = ss.str();
 
+12、编译gRpc
+（1）windows平台编译  vs2015及以上
+https://github.com/grpc/grpc/blob/master/INSTALL.md   
+https://blog.csdn.net/xie1xiao1jun/article/details/52514206
+（按照官网cmake的方式编译， 跑demo时会发现debug版本存在与release调用方面的问题，这是因为默认的cmake生成的vs工程中 属性/ c/c++ /代码生成/运行库 在debug时为/MD而不是/MDd，在vs中将依赖工程全部设置正确后即可）
+（2）依赖库可参考gRpcTest工程
