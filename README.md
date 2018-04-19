@@ -37,3 +37,5 @@ https://github.com/grpc/grpc/blob/master/INSTALL.md
 https://blog.csdn.net/xie1xiao1jun/article/details/52514206
 （按照官网cmake的方式编译， 跑demo时会发现debug版本存在与release调用方面的问题，这是因为默认的cmake生成的vs工程中 属性/ c/c++ /代码生成/运行库 在debug时为/MD而不是/MDd，在vs中将依赖工程全部设置正确后即可）
 （2）依赖库可参考gRpcTest工程
+
+（3）.proto文件 为utf-8编码，注释中带有中文字时，cpp-plugin生成的代码集成到vs（vs默认使用unicode字符集）时会报错，解决办法：（生成的源文件 注释和代码之间单击enter加一个空行）
